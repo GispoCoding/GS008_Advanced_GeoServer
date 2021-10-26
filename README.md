@@ -8,7 +8,9 @@ The course materials are written using R Markdown and rendered to HTML using [Bo
 Editing the .Rmd files triggers a GitHub workflow that renders the materials to the [docs/](docs) directory.
 See the [Bookdown documentation](https://bookdown.org) for instructions on Rmd syntax.
 
-You can also render locally with Docker using the [render.sh](render.sh) script.
+You can also render locally with Docker using the [render.sh](render.sh) ([render.ps1](render.ps1) on Windows) script.
+For Windows, you may need to enable script support first.
+Open Powershell as an administrator and run the command `Set-ExecutionPolicy RemoteSigned`.
 
 ## Rendering
 
