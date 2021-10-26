@@ -88,8 +88,10 @@ Access can be granted not only to layers but also services, and even to only spe
 Challenge: allow public access to WMS, but prevent unauthenticated users from accessing the GetFeatureInfo request.
 **Hint:** create a new rule from Security -> Services.
 
+Like GetMap requests, the response format of GetFeatureInfo requests can also be defined using a parameter.
+GetFeatureInfo supports GML2, plain text, GeoJSON, and HTML responses.
 You can read more about the GetFeatureInfo request in the [GeoServer documentation](https://docs.geoserver.org/latest/en/user/services/wms/reference.html#getfeatureinfo).
-GeoServer can
+GeoServer also supports [GetFeatureInfo templates](https://docs.geoserver.org/latest/en/user/tutorials/GetFeatureInfo/index.html) that can be used to customise the response HTML/GeoJSON document.
 
 An easy way to test if your new rule works is with QGIS.
 Add a WMS layer, select the blue "info" button in the top toolbar (Identify Features tool) and click on a feature on the map.

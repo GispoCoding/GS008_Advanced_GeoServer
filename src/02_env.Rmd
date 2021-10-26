@@ -27,12 +27,25 @@ If you don't have Docker available, another option is to install and set up Apac
 Download the Web Archive (.war) of the latest GS version on [geoserver.org](https://geoserver.org) and place it in the Tomcat webapps directory.
 Restart Tomcat, after which GeoServer should be accessible.
 
-## Useful tools
+## Useful tools to install {#tools}
 
 Parts of this course will cover optimising raster and vector spatial data.
 For these parts, it is useful to have some tools locally available.
+It's also highly useful to have a desktop GIS installed to act as a client application to test the various services provided by GeoServer.
 
-TODO: which tools
+### QGIS
 
-It's also highly useful to have a desktop GIS such as QGIS installed.
+QGIS is a free open-source desktop GIS that can be easily installed on Linux, Windows, and Mac.
 You can use QGIS as a WMS/WFS client to see how the different services provided by GS work.
+Download and install the latest version of QGIS at [qgis.org](https://qgis.org).
+
+Alternatively, you can also use other GIS software with WMS/WFS support.
+If you don't have access to GIS software, you can still rely on the Layer Preview functionality of GeoServer to view data.
+
+### GDAL
+
+TODO: link to install instructions
+
+### OGR
+
+TODO: link to install instructions
