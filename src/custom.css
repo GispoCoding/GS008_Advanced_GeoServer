@@ -157,6 +157,7 @@ p, span { color: #999; }
     background: #880093;
     padding: 10px;
     border: 1px solid #888888;
+    margin-bottom: 1rem;
 }
 .hint-box p {
     color: #fbfbfb;
@@ -167,6 +168,7 @@ p, span { color: #999; }
     background: #c3c2ff;
     padding: 10px;
     border: 1px solid #888888;
+    margin-bottom: 1rem;
 }
 .note-box p {
     color: #444444;

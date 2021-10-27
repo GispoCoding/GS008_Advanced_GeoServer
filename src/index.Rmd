@@ -18,10 +18,32 @@ documentclass: book
 
 Welcome to the Advanced GeoServer course by [Gispo Ltd.](https://gispo.fi)!
 
-These course materials are designed to be used during the 2 day Advanced GeoServer course.
+These course materials are designed to be used during the two-day Advanced GeoServer course.
 GeoServer is an open-source server software designed for distributing geospatial data using OGC standards including WMS, WFS, and WCS.
 
 ![](img/gs_logo.png)
+
+## About
+
+These materials are intended for users already familiar with GeoServer.
+Previous experience with QGIS and PostGIS is useful, but not necessary.
+
+In each chapter, a short description of a GeoServer-related topic is provided, followed by an exercise.
+When working through the material, try to follow along the exercises as good as you can.
+Even if you cannot complete an exercise, you learn much more by at least trying.
+
+The materials contain notes and hints that help with completing the exercises.
+Hints look like this:
+
+:::{.hint-box}
+**Hint:** these boxes contain useful tips for completing exercises.
+:::
+
+While notes look like this:
+
+:::{.note-box}
+**Note:** these boxes contain various things that should to keep in mind and consider.
+:::
 
 ## Lorem
 

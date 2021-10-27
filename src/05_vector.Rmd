@@ -78,22 +78,22 @@ username: postgres
 password: gispotraining
 ```
 
-::: {.hint-box}
+:::{.hint-box}
 **Hint:** make sure to check store next to username and password.
 Not storing the credentials can result in some unexpected inconveniences later on.
-}}}
+:::
 
 ![QGIS database connection parameters](img/qgis-dbconn.png)
 
 Click on the Test connection button and verify everything works, then click OK.
 
 Next, add the vector dataset of your choice to QGIS.
-Open the QGIS browser panel if it's not already visible, by clicking View -> Panels -> Browser.
+Open the QGIS browser panel if it's not already visible, by clicking View → Panels → Browser.
 Expand PostGIS in the browser panel by clicking on the small arrow, then expand the database you just added, and then the public schema.
 Finally, add the data to PostGIS by simply dragging the layer from the Layers panel to the public schema in the browser.
 
-Another option is to use the DB Manager plugin, which can be opened from the top menu by clicking Database -> DB Manager.
-A new window opens up.
+Another option is to use the DB Manager plugin, which can be opened from the top menu by clicking Database → DB Manager.
+A new window opens.
 Connect to the training database in the Providers panel by clicking on the small arrows, then click on the Import Layer/File button.
 Fill the form and click OK.
 
@@ -124,26 +124,39 @@ Then browse to the training database and see what tables the public schema conta
 ![Tables added to the training database](img/pgadmin-tables.png)
 
 Review all tables you have added and see what indexes they contain.
-If you added data with ogr2ogr, the table should have a index such as `peltoalue_wkb_geometry_geom_idx`.
+If you added data with ogr2ogr, the table should have an index such as `peltoalue_wkb_geometry_geom_idx`.
 If you used the QGIS drag-and-drop method, you will likely find there are no indexes for those tables.
 
 Try adding spatial indexes to tables you added.
-If all of your data is already properly indexed, try deleting the indexes and try recreating them.
+If all tables are already properly indexed, try deleting the indexes.
+Another option is to create another index on the same column but with a different name — a single column can have multiple indexes.
+
 For instructions on how to add and remove spatial indexes, see [PostGIS documentation](http://postgis.net/workshops/postgis-intro/indexing.html).
 The documentation also contains an explanation on how spatial indexing works and how it improves performance.
 
-::: {.hint-box}
+:::{.hint-box}
 **Hint:** you can enter SQL queries in pgAdmin using the query panel, click Tools → Query Tool to open it.
 :::
-
-To remove an existing spatial index, run:
-
-```
-DROP INDEX peltoalue_wkb_geometry_geom_idx
-```
 
 Create a new spatial index with:
 
 ```
-CREATE INDEX peltoalue_geom_idx ON public.peltoalue USING GIST (wkb_geometry);
+CREATE INDEX peltoalue_geom_idx
+ON public.peltoalue
+USING GIST (wkb_geometry);
 ```
+
+:::{.note-box}
+**Note:** you may have to change the table name (public.peltoalue) and/or column name (wkb_geometry) to match the names in your database.
+:::
+
+Verify the spatial index was created correctly by using the pgAdmin browser (remember to right-click and select refresh first).
+
+![A single column can have multiple indexes](img/pgadmin-newidx.png)
+
+Overlooking the importance of indexes, whether they are spatial or not, is an easy way to degrade database performance.
+Neglecting spatial indexing is a typical mistake when beginning to work with spatial databases.
+
+Optional: try adding a non-spatial index to the id column of a table.
+Non-spatial indexes can significantly increase database query performance when filtering or sorting by the indexed column.
+See the [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-createindex.html) for instructions.

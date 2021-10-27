@@ -45,11 +45,11 @@ http://<base-url>/geoserver/ows?SERVICE=WMS
 &TRANSPARENT=TRUE
 ```
 
-::: {.hint-box}
+:::{.hint-box}
 **Hint**: if you have QGIS, an easy way to generate such queries is to use the Debugging/Development Tools panel.
 :::
 
-Open the panel from the QGIS menu under View -> Panels.
+Open the panel from the QGIS menu under View → Panels.
 Click the red "record" button in the panel to start recording queries.
 Next, add a WMS layer and pan or zoom around the map.
 You should see a list of queries made by QGIS in the Debugging/Development Tools panel:
@@ -64,7 +64,7 @@ Now it's time to create strict default rules to prevent access to any workspace.
 
 Log in to GS, and follow the example in [Locking down GeoServer](https://docs.geoserver.org/latest/en/user/security/layer.html#locking-down-geoserver)
 to secure every layer and workspace from unauthenticated users.
-After setting the default rules, select 2 or 3 layers that you want to make publically available.
+After setting the default rules, select 2 or 3 layers that you want to make publicly available.
 Create or modify layer security rules to publish these layers.
 
 ### Verify rules
@@ -78,20 +78,20 @@ The easiest way to do this is to open QGIS, add the WMS as a data source and add
 You should get an error message and not be able to see any image output.
 You can also run the GetMap query in your web browser.
 
-Try another GetMap query, this time on one of the layers you decided to make publically available.
+Try another GetMap query, this time on one of the layers you decided to make publicly available.
 This time you should get an image as a result.
 
 Finally, make an authenticated GetMap query.
 This is easiest to do using QGIS by modifying the WMS data source (or adding a new one), and adding a username and password.
 Then try to add a private layer to the map, you should see an output image.
 
-## Extra - service-level settings
+## Extra — service-level settings
 
 Access can be granted not only to layers but also services, and even to only specific service requests.
 Try allowing public access to WMS, but prevent unauthenticated users from accessing the GetFeatureInfo request.
 
-::: {.hint-box}
-**Hint:** create a new rule from Security -> Services.
+:::{.hint-box}
+**Hint:** create a new rule from Security → Services.
 :::
 
 Like GetMap requests, the response format of GetFeatureInfo requests can also be defined using a parameter.
@@ -102,5 +102,5 @@ GeoServer also supports [GetFeatureInfo templates](https://docs.geoserver.org/la
 An easy way to test if your new rule works is with QGIS.
 Add a WMS layer, select the blue "info" button in the top toolbar (Identify Features tool) and click on a feature on the map.
 You should see attributes of the clicked layer in a side panel.
-QGIS fetches this information using a GetFeatureInfo request - see the Debugging/Development Tools panel to see the request and verify.
+QGIS fetches this information using a GetFeatureInfo request — see the Debugging/Development Tools panel to see the request and verify.
 Configure GS so the request does not work without providing login credentials.
