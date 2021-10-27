@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Advanced GeoServer" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Mikael Vaaltola" />
+
+<meta name="date" content="2021-10-27" />
+
+
+<meta name="description" content="Advanced GeoServer">
+
+<title>Advanced GeoServer</title>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title"><h1 class="text-center">Advanced GeoServer</h1></div>
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li><a href="index.html#advanced-geoserver"><span class="toc-section-number">1</span> Advanced GeoServer</a>
+<ul>
+<li><a href="index.html#about"><span class="toc-section-number">1.1</span> About</a></li>
+<li><a href="index.html#lorem"><span class="toc-section-number">1.2</span> Lorem</a></li>
+</ul></li>
+<li><a href="02_env.html#training-environment"><span class="toc-section-number">2</span> Training environment</a>
+<ul>
+<li><a href="02_env.html#tools"><span class="toc-section-number">2.1</span> Useful tools to install</a>
+<ul>
+<li><a href="02_env.html#qgis"><span class="toc-section-number">2.1.1</span> QGIS</a></li>
+<li><a href="02_env.html#gdal"><span class="toc-section-number">2.1.2</span> GDAL</a></li>
+<li><a href="02_env.html#ogr"><span class="toc-section-number">2.1.3</span> OGR</a></li>
+</ul></li>
+</ul></li>
+<li><a href="03_security.html#security-and-user-management"><span class="toc-section-number">3</span> Security and user management</a>
+<ul>
+<li><a href="03_security.html#exercise---layer-security"><span class="toc-section-number">3.1</span> Exercise - layer security</a>
+<ul>
+<li><a href="03_security.html#check-default-permissions"><span class="toc-section-number">3.1.1</span> Check default permissions</a></li>
+<li><a href="03_security.html#prevent-unauthenticated-access"><span class="toc-section-number">3.1.2</span> Prevent unauthenticated access</a></li>
+<li><a href="03_security.html#verify-rules"><span class="toc-section-number">3.1.3</span> Verify rules</a></li>
+</ul></li>
+<li><a href="03_security.html#extra-service-level-settings"><span class="toc-section-number">3.2</span> Extra — service-level settings</a></li>
+</ul></li>
+<li><a href="04_raster.html#rasters"><span class="toc-section-number">4</span> Optimising rasters</a>
+<ul>
+<li><a href="04_raster.html#gdal-1"><span class="toc-section-number">4.1</span> GDAL</a>
+<ul>
+<li><a href="04_raster.html#setup"><span class="toc-section-number">4.1.1</span> Setup</a></li>
+<li><a href="04_raster.html#gdalinfo"><span class="toc-section-number">4.1.2</span> gdalinfo</a></li>
+</ul></li>
+<li><a href="04_raster.html#exercise-optimising-raster-data-for-geoserver"><span class="toc-section-number">4.2</span> Exercise — Optimising raster data for GeoServer</a></li>
+</ul></li>
+<li><a href="05_vector.html#vectors"><span class="toc-section-number">5</span> Optimising vector data</a>
+<ul>
+<li><a href="05_vector.html#exercise---postgis-and-geoserver"><span class="toc-section-number">5.1</span> Exercise - PostGIS and GeoServer</a>
+<ul>
+<li><a href="05_vector.html#loading-data-into-postgis"><span class="toc-section-number">5.1.1</span> Loading data into PostGIS</a></li>
+<li><a href="05_vector.html#indexing"><span class="toc-section-number">5.1.2</span> Indexing</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+
+<div class="abstract-sidebar">
+A course covering advanced GeoServer topics.
+</div>
+
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!-- This title section is only rendered to index.html -->
+<div id="title-container">
+
+<h1 id="title-header">Advanced GeoServer</h1>
+
+<h4 class="author"><em>Mikael Vaaltola</em></h4>
+
+<h4 id="build-date">Version: <em>2021-10-27</em></h4>
+
+<div class="abstract">
+A course covering advanced GeoServer topics.
+</div>
+
+</div>
+<div id="advanced-geoserver" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Advanced GeoServer</h1>
+<p>Welcome to the Advanced GeoServer course by <a href="https://gispo.fi">Gispo Ltd.</a>!</p>
+<p>These course materials are designed to be used during the two-day Advanced GeoServer course.
+GeoServer is an open-source server software designed for distributing geospatial data using OGC standards including WMS, WFS, and WCS.</p>
+<p><img src="img/gs_logo.png" /></p>
+<div id="about" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> About</h2>
+<p>These materials are intended for users already familiar with GeoServer.
+Previous experience with QGIS and PostGIS is useful, but not necessary.</p>
+<p>In each chapter, a short description of a GeoServer-related topic is provided, followed by an exercise.
+When working through the material, try to follow along the exercises as good as you can.
+Even if you cannot complete an exercise, you learn much more by at least trying.</p>
+<p>The materials contain notes and hints that help with completing the exercises.
+Hints look like this:</p>
+<div class="hint-box">
+<p><strong>Hint:</strong> these boxes contain useful tips for completing exercises.</p>
+</div>
+<p>While notes look like this:</p>
+<div class="note-box">
+<p><strong>Note:</strong> these boxes contain various things that should to keep in mind and consider.</p>
+</div>
+</div>
+<div id="lorem" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Lorem</h2>
+<p>Lumia pirisee 7.00 , time to wake up, Tiger!! Food for thought: Mestis, annetut jäähyt 47 games; Jukurit 460 min, Sport 516 min, TUTO 892 min; TASAPUOLISTA??? Vastajännäreille ja elämän kovuuden parkujille; nauttikaa nyt, koska lauantaina palaamme voittojen tielle= Turkulaisen kiekkoilun ainoa mitali ripustetaan hienon coaching officen seinälle n klo 19.30 muistuttamaan seuraavaa coaching staffia siitä missä menee “UUDEN VOITTAVAN TUTON ALARAJA; yksi” Kukko joka veljelle" ja THE SEASON IS OVER!!Siinä viikonlopun hengessä tsemppiä kaikille taistelijoille ja heidän upeille leideilleen; kitisijät, kuusi isoa tölkkiä kolmosta, “vitosen paini” kylillä, makkaraperunat ja lähimetsään huutamaan, viimeisen tutkimuksen mukaan: “IT HELPS my FRIENDS” joten repikää siitä!! Br Jt, Lion # 79</p>
+<p>Hieno golfpäivän Hotel Mar Menorin kentällä!! Nyt sauna ja Madame Tammisen lihakeitto(simply the best) ja early to bed!!! Yksi kysymys; Henkka Salevalle; Pauli Aalto-Setälälle ja lastensuojelun viranomaisille?? Studiossa huippufiilis-kiitos Teemu ja Keku!! Päivä omistettu esikoisen muutolle!! Feeling great- kondis nousee- golfkausi korkataan Alicantessa ensi sunnuntaina!!Tasoitus noussut jo 9.0:aan TIME TO REACT!!Parhaimmillaan 4 (late seventies) Wau time flies ja äijä vanhenee- NO GOOD !!!!Nyt-vihdoinkin koulutusbusinesten kimppuun, aikataulut, buukkaukset, kirjat; täytynee palkata sihteeri??</p>
+<p>Siinä hengessä nyt kohti Marli Areenaa; siellä odottaa kauden 2012-13 järjestyksessä 193:s harjoitus (jää) Sieltä kohti välierää; part 1; keskiviikkona 18.30; be there!! Nickersonin mailalyönnit pohkeeseen jälkitilanteissa hyväksytään systemaattisesti-kysyn MIKSI??? “Det blir spännande” sanoisi ruotsin “Aurinkokuningas”, ystäväni Niklas Wikegård!! Nickersonin mailalyönnit pohkeeseen jälkitilanteissa hyväksytään systemaattisesti-kysyn MIKSI??? Nyt tiedän mitä Ruissalon harjoituksissa treenataan PRO Ari Mäen johdolla!!</p>
+<p>“Can You make it one more time my friend”?, kysyy selftalk ja vastaus saadaan seuraavan synttärin yhteydessä 26.05.2013!! Taas kerran tuli selväksi: “Peli ei ole oikeudenmukaista- se on PELI!!Espanjan veljet veivät peliä kuin sitä kuuluisaa”mätää kukkoa" mutta puolustusmuuri, sitkeys, yksi vastaisku ja taululla TASURI!! Urheilun puolella Kaunottaret (Inka/ Yle; Inka &amp; Mervi/ MTV3) joy to watch and hear!!! Leijonat tuntuivat saaneen voiton Norjasta, siitä ei kannata vielä liiton klubitakkia repäistä, jo Ranskan kanssa voitimme Norjan pystyyn joka maaottelussa; en usko, että ovat niistä ajoista ratkaisevasti kehittyneet; jos Volden on ykkösmolari, ennustan Norjalle mielenkiintoista MM-aikaa; pysykää kanavalla, olemme “veli” Antsan, Niikon ja Pekka Lehtisen kanssa kovassa iskussa kun MM-2013 startaa toukokuun alussa!!Loistavaa päivää KAIKILLE taistelijoille ja heidän upeille leideilleen; kitisijät-painukaa-tiedätte jo minne???!! ja pysykää siellä ja lopettakaa ELÄMÄN kovuuden parkuminen!! Br.JT, Lion # 79</p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="02_env.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div>
+<h3 class="footer-title">Advanced GeoServer</h3>
+<span class="footer-version">v2021-10-27</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-contact text-left">
+<h6 class="footer-title footer-company">Gispo Ltd.
+<span class="footer-copyright-year">© 2021</span></h6>
+<span class="footer-contact-info">Kalevankatu 31</span>
+<span class="footer-contact-info">00100 Helsinki, Finland</span>
+<span class="footer-contact-info">info@gispo.fi</span>
+</div>
+
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+
+</body>
+</html>
