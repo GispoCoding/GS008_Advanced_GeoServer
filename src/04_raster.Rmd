@@ -1,8 +1,17 @@
-# Raster data
+# Optimising rasters {#rasters}
 
 GeoServer is often used to distribute spatial raster data, typically using either WMS or WCS.
-Raster datasets are often large in size, and poorly optimised raster data can result in significant decrease in GeoServer's performance.
-Checking if raster data is correctly optimised is therefore one of the first steps that should be performed when encountering slowdowns.
+Typical use cases for raster data are aerial and satellite imagery and various coverages.
+Raster datasets are often large, and poorly optimised raster data can result in significant decrease in GeoServer's performance.
+Checking if raster data is correctly optimised is therefore one of the first steps that should be performed when encountering performance issues with raster layers.
+
+TODO: move this elsewhere
+Chapters \@ref(rasters) and \@ref(vectors) discussed optimising raster and vector datasets for use with GeoServer to achieve better performance.
+However, it's important to realise certain performance limitations exist.
+For example, it's nearly impossible to optimise WMS query response times beyond a certain point.
+To process each GetMap query, GeoServer must fetch the data from the source, render the data using a (sometimes complex) style definition, and transfer the output image over HTTP.
+Each step of this process introduces its own delays and can form a performance bottleneck.
+If WMS performance is still insufficient even after optimising the input data, instead of WMS, consider using WMTS or other services that pre-render map tiles to a cache.
 
 ## GDAL
 
@@ -11,6 +20,10 @@ The GDAL library provides a set of command-line tools for reading and manipulati
 As the tools are command-line based, they are ideal for use in scripts and automated processes.
 
 ### Setup
+
+:::{.note-box}
+**Note:** if you are on Windows and have QGIS installed, you don't need to install GDAL separately, simply open the OSGeo4W shell from the start menu.
+:::
 
 An easy way to check if you already have GDAL installed and available is opening up a terminal (prefer powershell on Windows) and running the following command:
 
@@ -24,7 +37,7 @@ This should result in output resembling the following:
 GDAL 3.3.1, released 2021/06/28
 ```
 
-If instead you get an "unknown command" error message or something similar, GDAL is not currently installed/available.
+If instead you get an "unknown command" error message or something similar, GDAL is not installed/available.
 You can follow the instructions in Chapter \@ref(tools) to install GDAL on your machine.
 
 Even if GDAL cannot be installed, you can still read along the exercise and simply skip running the commands.
@@ -32,7 +45,7 @@ Even if GDAL cannot be installed, you can still read along the exercise and simp
 ### gdalinfo
 
 The gdalinfo command is a highly useful tool to explore the properties of a raster file.
-It's also very easy to use, simply open up a terminal and run:
+It's also very easy to use, simply open a terminal and run:
 
 ```
 gdalinfo <your_dataset>
@@ -155,12 +168,15 @@ Some things to look out for in particular:
 
 As you can see, the gdalinfo output contains a ton of useful information and metadata about the raster.
 
-## Exercise - Optimising raster data for GeoServer
+## Exercise — Optimising raster data for GeoServer
 
 The idea of this exercise is to use and optimise raster datasets that you already have.
 This way you process and explore the properties of data that is already meaningful to you.
-**However**, if you do not have any raster data available, you can use sample data from your GS instance.
-Open the URL `http://<your-gs-instance>/data` (#TODO: implement data endpoint) in a web browser to view available datasets and download a raster dataset, such as `nlsfi/ortokuvat/L4133A.tif`.
+
+:::{.note-box}
+**Note:** if you do not have any raster data available, you can use sample data from your GS instance.
+Open the URL `http://<base-url>/data` (#TODO: implement data endpoint) in a web browser to view available datasets and download a raster dataset, such as `nlsfi/ortokuvat/L4133A.tif`.
+:::
 
 Run `gdalinfo` on your own raster datasets and try to answer the questions:
 
@@ -178,13 +194,13 @@ Typically, the process consists of the following steps:
 4. Compress if necessary.
 
 The first step in raster optimisation is picking a suitable format.
-Many describe the GeoTIFF format as a "swiss army knife" - that is, highly useful for many situations, but better choices may be available.
+Many describe the GeoTIFF format as a "swiss army knife" — that is, highly useful for many situations, but better choices may be available.
 GeoTIFF is perfectly fine for most use cases, and should be used unless you have specific reasons for using another format.
 
 With 64 bit offsets (BigTIFF), GeoTIFF files can grow beyond 4 GB.
 As a rule of thumb, as long as your (uncompressed) GeoTIFF files stay below 10 GB, everything should be fine.
 In fact, in many cases, combining multiple smaller files to a single, larger GeoTIFF can actually improve performance.
-As your GeoTIFF filesizes approach 10 GB, it's time to start thinking about splitting instead of merging.
+As your GeoTIFF file sizes approach 10 GB, it's time to start thinking about splitting instead of merging.
 Fortunately, publishing raster datasets split to multiple files with GeoServer is easy to do using the ImageMosaic store.
 
 ---
@@ -198,28 +214,28 @@ gdal_translate in.file out.tif -co TILED=YES
 ```
 
 The `TILED=YES` option instructs GDAL to add internal tiling to the output file (out.tif).
-By default, internal tiles are 256x256 pixels, but a different tilesize can be specified using the options `-co BLOCKXSIZE=n -co BLOCKYSIZE=n`.
+By default, internal tiles are 256×256 pixels, but a different tile size can be specified using the options `-co BLOCKXSIZE=n -co BLOCKYSIZE=n`.
 
 Internal tiles let client software read the raster only partially.
-For example, without tiles, viewing a small 100x100px subsection at the top-left corner of a 1000x1000px raster requires reading the first 100 rows of the raster completely - that's 100 rows * 1000 pixels/row = 100000 pixels.
-With 256x256px tiles, only one 256x256px subtile has to be read, i.e. 65536 pixels - a decrease of ~35%.
-Naturaly, the larger the raster is, the greater the difference becomes.
+For example, without tiles, viewing a small 100×100px subsection in the top-left corner of a 1000×1000px raster requires reading the first 100 rows of the raster completely — that's 100 rows × 1000 pixels/row = 100000 pixels.
+With 256×256px tiles, only one 256×256px sub-tile has to be read, i.e., 65536 pixels — a decrease of ~35%.
+Naturally, the larger the raster is, the greater the difference becomes.
 
-Try to convert some raster files to GeoTIFF format with 512x512px internal tiling.
+Try to convert some raster files to GeoTIFF format with 512×512px internal tiling.
 Verify the results with gdalinfo.
 
 ---
 
 Overviews are lower resolution versions of the original raster that are created by downsampling the original data.
 A single raster can have multiple overview levels.
-For example, a 1000x1000px raster can have overviews of 500x500px, 250x250px, and 125x125px.
+For example, a 1000×1000px raster can have overviews of 500×500px, 250×250px, and 125×125px.
 
 Tiling and overviews follow the same concept: try to minimise the amount of read data.
-Monitors have a finite resolution, and rendering every pixel of a 10000x10000px raster on a 1920x1080px screen is not possible.
+Monitors have a finite resolution, and rendering every pixel of a 10000×10000px raster on a 1920×1080px screen is impossible.
 When attempting to render a raster that is beyond the screen resolution, one of two things happens:
 
 1. The raster is cropped to a subsection that is the size of the screen, or
-2. The entire raster is rendered after downsampling
+2. The entire raster is rendered after downsampling.
 
 Tiling helps with option #1, while overviews are designed to improve the performance of option #2.
 Downsampling an image requires computational resources, and the original image must be read to memory completely.
@@ -233,7 +249,7 @@ gdaladdo file.tif 2 4 8 16 32
 ```
 
 The numbers after file.tif represent the different overview levels to generate.
-These are provided as a factor of the original raster shape, i.e. "two times smaller", "four times smaller", etc.
+These are provided as a factor of the original raster shape, i.e., "two times smaller", "four times smaller", etc.
 A downsampling algorithm can be specified with the option `-r {nearest, average, gauss, average_mp, average_magphase, mode}`.
 Each algorithm has its own advantages and disadvantages, and the correct algorithm depends on the use case.
 Overviews can also be forced to be generated externally by adding the `-ro` (read-only) flag.
@@ -242,4 +258,7 @@ Try to add overviews to a raster file.
 Extra: find out how to *remove* existing overviews from a file using gdaladdo.
 Pay attention to the filesize before and after computing/removing overviews.
 How is filesize affected, and why?
+
+:::{.hint-box}
 **Hint:** see the [gdaladdo](https://gdal.org/programs/gdaladdo.html) documentation.
+:::

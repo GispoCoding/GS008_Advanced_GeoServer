@@ -1,14 +1,17 @@
 # Training environment
 
 First, let's ensure access to the GeoServer training environment.
-If you are following these materials while participating on the Advanced GeoServer course, you are provided your own GS instance hosted on Amazon Web Services (AWS).
-The URL of this instance is provided to you by your course instructor.
-You can log in to your GS instance as an administrator with the following credentials:
+If you are following these materials while participating on the Advanced GeoServer course, you are provided your own virtual machine hosted on Amazon Web Services (AWS).
+The base URL of this instance is provided to you by your course instructor, this is referred to later on as base-url.
+To access GeoServer, navigate to `http://<base-url>/geoserver` with your web browser of choice.
+You can log in to your GeoServer instance as an administrator with the following credentials:
 
 ```
 username: admin
 password: gispotraining
 ```
+
+---
 
 Alternatively, you can also install GeoServer on your local machine.
 An easy way to do this is to use Docker, we recommend using the latest version of the [kartoza/geoserver](https://hub.docker.com/r/kartoza/geoserver) image.
@@ -21,7 +24,7 @@ docker run --name geoserver\
 --rm kartoza/geoserver:latest
 ```
 
-After startup, GS is accessible at [http://localhost:8080/](http://localhost:8080/) and you can log in with the credentials above.
+After startup, GS is accessible at [http://localhost:8080/](http://localhost:8080/geoserver) and you can log in with the credentials above.
 
 If you don't have Docker available, another option is to install and set up Apache Tomcat 9 and OpenJDK 11.
 Download the Web Archive (.war) of the latest GS version on [geoserver.org](https://geoserver.org) and place it in the Tomcat webapps directory.
