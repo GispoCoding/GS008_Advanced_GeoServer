@@ -187,7 +187,7 @@ Click the Find button to select the correct EPSG (3067) as the Declared SRS and 
 The layer should now behave normally.
 
 :::{.hint-box}
-**Hint:**: A better solution would be to fix the root cause by setting the SRS in the database.
+**Hint:** A better solution would be to fix the root cause by setting the SRS in the database.
 Read the documentation of the PostGIS [UpdateGeometrySRID](https://postgis.net/docs/UpdateGeometrySRID.html) function and see if you can fix the issue with pgAdmin.
 Verify results by trying to publish the layer again — Native SRS should now be correctly recognised as EPSG:3067.
 :::
