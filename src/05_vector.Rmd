@@ -60,6 +60,11 @@ The `training` PostGIS database on the training machine contains no data, so the
 Pick any vector dataset you have on your own machine, or download a sample dataset from `http://<base-url>/data`.
 As an example, we use `nlsfi/YK_1M/RautatieViiva.shp` and other shapefiles from the same directory.
 
+:::{.note-box}
+**Note:** if downloading shapefiles from `http://<base-url>/data`, make sure to download all files with the same base name.
+I.e., download `RautatieViiva.(shp & .shx & .dbf & prj)` and place all the files in the same directory.
+:::
+
 There's multiple ways of loading data to PostGIS, but we present two: QGIS and ogr2ogr.
 QGIS is easier, while ogr2ogr is more powerful.
 You can try both or pick only one, if you're already familiar with one of the methods it's a good idea to try the other one.
