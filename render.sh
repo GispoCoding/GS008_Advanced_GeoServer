@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker run --rm -v "$(pwd)/src":/work -v "$(pwd)/out":/out toyland/bookdown:latest ./run.sh
+docker run --rm -v "$(pwd)/src:/app" -v "$(pwd)/out:/out" mvaaltola/bookdown:latest ./run.sh
