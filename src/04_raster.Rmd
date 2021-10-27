@@ -21,7 +21,9 @@ As the tools are command-line based, they are ideal for use in scripts and autom
 
 ### Setup
 
+:::{.note-box}
 **Note:** if you are on Windows and have QGIS installed, you don't need to install GDAL separately, simply open the OSGeo4W shell from the start menu.
+:::
 
 An easy way to check if you already have GDAL installed and available is opening up a terminal (prefer powershell on Windows) and running the following command:
 
@@ -170,8 +172,11 @@ As you can see, the gdalinfo output contains a ton of useful information and met
 
 The idea of this exercise is to use and optimise raster datasets that you already have.
 This way you process and explore the properties of data that is already meaningful to you.
-**However**, if you do not have any raster data available, you can use sample data from your GS instance.
+
+:::{.note-box}
+**Note:** if you do not have any raster data available, you can use sample data from your GS instance.
 Open the URL `http://<base-url>/data` (#TODO: implement data endpoint) in a web browser to view available datasets and download a raster dataset, such as `nlsfi/ortokuvat/L4133A.tif`.
+:::
 
 Run `gdalinfo` on your own raster datasets and try to answer the questions:
 
@@ -253,4 +258,7 @@ Try to add overviews to a raster file.
 Extra: find out how to *remove* existing overviews from a file using gdaladdo.
 Pay attention to the filesize before and after computing/removing overviews.
 How is filesize affected, and why?
+
+::: {.hint-box}
 **Hint:** see the [gdaladdo](https://gdal.org/programs/gdaladdo.html) documentation.
+:::

@@ -27,13 +27,15 @@ username: training@gispo.fi
 password: gispotraining
 ```
 
+:::{.note-box}
 **Note:** if not using the training machine, PostgreSQL/PostGIS and pgAdmin can be installed locally with a small effort using Docker.
 The training machine is using the containers [kartoza/postgis](https://hub.docker.com/r/kartoza/postgis) and [dpage/pgadmin4](https://hub.docker.com/r/dpage/pgadmin4/).
 If running Postgres locally, `localhost` should be used as hostname.
+:::
 
 ---
 
-After logging in to pgAdmin, add a new database connection by clicking on Object -> Create -> Server in the top menu.
+After logging in to pgAdmin, add a new database connection by clicking on Object → Create → Server in the top menu.
 Give the new server a name, and switch over to the Connection tab.
 Input the following details:
 
@@ -76,8 +78,10 @@ username: postgres
 password: gispotraining
 ```
 
-**Make sure to check store** next to user name and password.
+::: {.hint-box}
+**Hint:** make sure to check store next to username and password.
 Not storing the credentials can result in some unexpected inconveniences later on.
+}}}
 
 ![QGIS database connection parameters](img/qgis-dbconn.png)
 
@@ -117,4 +121,29 @@ Open pgAdmin again, right-click on the server on the Browser panel, and select R
 This updates the database contents in the browser.
 Then browse to the training database and see what tables the public schema contains.
 
-![Tables added to the training database](img/pgadmin-tables)
+![Tables added to the training database](img/pgadmin-tables.png)
+
+Review all tables you have added and see what indexes they contain.
+If you added data with ogr2ogr, the table should have a index such as `peltoalue_wkb_geometry_geom_idx`.
+If you used the QGIS drag-and-drop method, you will likely find there are no indexes for those tables.
+
+Try adding spatial indexes to tables you added.
+If all of your data is already properly indexed, try deleting the indexes and try recreating them.
+For instructions on how to add and remove spatial indexes, see [PostGIS documentation](http://postgis.net/workshops/postgis-intro/indexing.html).
+The documentation also contains an explanation on how spatial indexing works and how it improves performance.
+
+::: {.hint-box}
+**Hint:** you can enter SQL queries in pgAdmin using the query panel, click Tools → Query Tool to open it.
+:::
+
+To remove an existing spatial index, run:
+
+```
+DROP INDEX peltoalue_wkb_geometry_geom_idx
+```
+
+Create a new spatial index with:
+
+```
+CREATE INDEX peltoalue_geom_idx ON public.peltoalue USING GIST (wkb_geometry);
+```

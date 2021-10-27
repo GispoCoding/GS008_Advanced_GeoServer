@@ -45,7 +45,10 @@ http://<base-url>/geoserver/ows?SERVICE=WMS
 &TRANSPARENT=TRUE
 ```
 
+::: {.hint-box}
 **Hint**: if you have QGIS, an easy way to generate such queries is to use the Debugging/Development Tools panel.
+:::
+
 Open the panel from the QGIS menu under View -> Panels.
 Click the red "record" button in the panel to start recording queries.
 Next, add a WMS layer and pan or zoom around the map.
@@ -85,8 +88,11 @@ Then try to add a private layer to the map, you should see an output image.
 ## Extra - service-level settings
 
 Access can be granted not only to layers but also services, and even to only specific service requests.
-Challenge: allow public access to WMS, but prevent unauthenticated users from accessing the GetFeatureInfo request.
+Try allowing public access to WMS, but prevent unauthenticated users from accessing the GetFeatureInfo request.
+
+::: {.hint-box}
 **Hint:** create a new rule from Security -> Services.
+:::
 
 Like GetMap requests, the response format of GetFeatureInfo requests can also be defined using a parameter.
 GetFeatureInfo supports GML2, plain text, GeoJSON, and HTML responses.

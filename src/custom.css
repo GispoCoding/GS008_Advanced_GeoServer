@@ -152,6 +152,27 @@ p, span { color: #999; }
 
 .footer-copyright-year { font-size: 0.5rem; }
 
+/* Content boxes */
+.hint-box {
+    background: #880093;
+    padding: 10px;
+    border: 1px solid #888888;
+}
+.hint-box p {
+    color: #fbfbfb;
+    margin: 0;
+}
+
+.note-box {
+    background: #c3c2ff;
+    padding: 10px;
+    border: 1px solid #888888;
+}
+.note-box p {
+    color: #444444;
+    margin: 0;
+}
+
 /* Media queries */
 @media (max-width: 1540px) {
     .sidebar { width: 320px; }
