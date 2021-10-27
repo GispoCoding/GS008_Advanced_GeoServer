@@ -25,11 +25,11 @@ Run the GetMap query from your web browser, you should see an image as a result.
 Here's an example that works if your GS instance uses the default demo dataset:
 
 ```
-On one line:
-http://<your-gs-url-here>/ows?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&BBOX=24.95596700000000112,-124.7314220000000091,49.37173500000000104,-66.96984899999999641&CRS=EPSG:4326&WIDTH=1827&HEIGHT=772&LAYERS=topp%3Astates&STYLES=&FORMAT=image/png&DPI=96&MAP_RESOLUTION=96&FORMAT_OPTIONS=dpi:96&TRANSPARENT=TRUE
+On one line for copying:
+http://<base-url>/geoserver/ows?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&BBOX=24.95596700000000112,-124.7314220000000091,49.37173500000000104,-66.96984899999999641&CRS=EPSG:4326&WIDTH=1827&HEIGHT=772&LAYERS=topp%3Astates&STYLES=&FORMAT=image/png&DPI=96&MAP_RESOLUTION=96&FORMAT_OPTIONS=dpi:96&TRANSPARENT=TRUE
 
-Split:
-http://<your-gs-url-here>/ows?SERVICE=WMS
+Split to multiple lines for clarity:
+http://<base-url>/geoserver/ows?SERVICE=WMS
 &VERSION=1.3.0
 &REQUEST=GetMap
 &BBOX=24.95596700000000112,-124.7314220000000091,49.37173500000000104,-66.96984899999999641
