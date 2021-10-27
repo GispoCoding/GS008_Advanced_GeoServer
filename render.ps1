@@ -1,1 +1,1 @@
-docker run -it --rm -v "${pwd}/src:/work".ToLower() -v "${pwd}/out:/out".ToLower() toyland/bookdown:latest ./run.sh
+docker run -it --rm -v "${pwd}/src:/work".ToLower() -v "${pwd}/out:/out".ToLower() mvaaltola/bookdown:latest ./run.sh
