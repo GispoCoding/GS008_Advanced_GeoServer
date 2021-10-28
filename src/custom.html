@@ -87,12 +87,12 @@ $endfor$
 $if(title)$
 <h1 id="title-header">$title$</h1>
 $if(subtitle)$
-<h3 id="subtitle-header"><em>$subtitle$</em></h3>
+<h3 id="subtitle-header">$subtitle$</h3>
 $endif$
 
 $for(author)$
 $if(author.name)$
-<h4 class="author"><em>$author.name$</em></h4>
+<h4 class="author">$author.name$</h4>
 
 $if(author.affiliation)$
 <address class="author_afil">$author.affiliation$<br>
@@ -102,18 +102,16 @@ $if(author.email)$
 <a class="author_email" href="mailto:#">$author.email$</a></address>
 $endif$
 $else$
-<h4 class="author"><em>$author$</em></h4>
+<h4 class="author">$author$</h4>
 $endif$
 $endfor$
 
 $if(date)$
-<h4 id="build-date">Version: <em>$date$</em></h4>
+<h4 id="build-date">Version: $date$</h4>
 $endif$
 
 $if(abstract)$
-<div class="abstract">
-$abstract$
-</div>
+<div class="abstract"><p>$abstract$</p></div>
 $endif$
 
 $endif$
@@ -129,8 +127,13 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <span class="hamburger-box"><span class="hamburger-inner"></span></span>
 </button>
 
-<div class="sidebar-title"><h1 class="text-center">$pagetitle$</h1></div>
+<div class="sidebar-title-wrapper">
 <img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>$pagetitle$</h1></div>
+$if(abstract)$
+<div class="abstract-sidebar"><p>$abstract$</p></div>
+$endif$
+</div>
 
 <nav class="sidebar-nav">
 $if(toc)$
@@ -139,13 +142,6 @@ $toc$
 </div>
 $endif$
 </nav>
-
-$if(abstract)$
-<div class="abstract-sidebar">
-$abstract$
-</div>
-$endif$
-
 </div>
 </header>
 <!--bookdown:toc:end-->
@@ -158,9 +154,9 @@ $body$
 
 <div class="footer-container text-center">
 
-<div>
+<div class="footer-info">
 $if(title)$
-<h3 class="footer-title">$title$</h3>
+<h5 class="footer-title">$title$</h5>
 $if(subtitle)$
 <p class="footer-subtitle"><em>$subtitle$</em></p>
 $endif$
@@ -171,12 +167,13 @@ $endif$
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 
-<div class="footer-contact text-left">
-<h6 class="footer-title footer-company">Gispo Ltd.
-<span class="footer-copyright-year">© 2021</span></h6>
-<span class="footer-contact-info">Kalevankatu 31</span>
-<span class="footer-contact-info">00100 Helsinki, Finland</span>
-<span class="footer-contact-info">info@gispo.fi</span>
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Ltd.
+<span class="footer-copyright-year">© 2021</span></h5>
+<span class="footer-contact-info">Kalevankatu 31
+<br>00100 Helsinki, Finland
+<br>info@gispo.fi
+</span>
 </div>
 
 </div>
