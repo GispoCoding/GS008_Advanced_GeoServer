@@ -2,7 +2,9 @@
 
 Styles define how GeoServer renders spatial data to maps.
 The GeoServer render engine uses SLD, but other styling languages such as (Geo)CSS are supported via extensions.
-The styling extensions work functionally the same — they convert style definitions written in another syntax to SLD that the render engine can use.
+All styling language extensions work functionally the same — they convert style definitions written in another syntax to SLD that the render engine can use.
+GeoServer also supports its own SLD extensions and vendor-options, described in the [GeoServer documentation](https://docs.geoserver.org/master/en/user/styling/sld/extensions/index.html).
+These extensions provide users many new and powerful options, such as performing on-the-fly [geometry translations](), and creating dynamic styles by allowing [SLD variable substitution].
 
 A more novel approach to styling is distributing map styles to clients.
 This is especially useful when distributing vector data — either through WFS or WMTS (vector tiles).
@@ -27,6 +29,12 @@ If you are planning to use GeoServer as a backend for your mobile application wr
 
 On the other hand, if you want to stick to SLD and ensure maximum compatibility between software, consider installing the [GeoStyler Extension](https://docs.geoserver.org/master/en/user/community/geostyler/index.html).
 The extension adds a new graphical style editor tab to the GeoServer style editor, allowing users to generate GeoServer-compatible SLD with relative ease.
+
+## Exercise — creating styles
+
 Try playing around with creating styles for your data in GeoStyler on the [GeoStyler demo page](https://geostyler.github.io/geostyler-demo/).
 
 ![GeoStyler graphical style editor](img/geostyler-demo.png)
+
+Next, pick a new [GeoServer SLD extension](https://docs.geoserver.org/master/en/user/styling/sld/extensions/index.html) you haven't used before and see it in action.
+Think about the potential use cases for the extension, but also try to assess potential issues with rendering performance and compatibility with other software.
