@@ -32,7 +32,8 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold !important;
     color: #434662;
     line-height: 140%;
-    margin-bottom: 0.6em;
+    margin-bottom: 0.6em !important;
+    margin-top: 1em !important;
 }
 
 h1 {
