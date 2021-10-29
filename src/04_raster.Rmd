@@ -55,7 +55,7 @@ The tool provides all the information needed to see if the raster file in questi
 For `L4133A.tif` the output looks like this:
 
 ```
-$ gdalinfo data/nlsfi/ortokuvat/L4133A.tif
+$ gdalinfo geoserver/nlsfi/ortokuvat/L4133A.tif
 Driver: GTiff/GeoTIFF
 Files: L4133A.tif
 Size is 12000, 12000
@@ -175,7 +175,7 @@ This way you process and explore the properties of data that is already meaningf
 
 :::{.note-box}
 **Note:** if you do not have any raster data available, you can use sample data from your GS instance.
-Open the URL `http://<base-url>/data/` in a web browser to view available datasets and download a raster dataset, such as `nlsfi/ortokuvat/L4133A.tif`.
+Open the URL `http://<base-url>/data/` in a web browser to view available datasets and download a raster dataset, such as `geoserver/nlsfi/ortokuvat/L4133A.tif`.
 :::
 
 Run `gdalinfo` on your own raster datasets and try to answer the questions:

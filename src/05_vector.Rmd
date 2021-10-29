@@ -58,7 +58,7 @@ Take note of the different databases on the server and what schemas and tables t
 
 The `training` PostGIS database on the training machine contains no data, so the first order of business is to add some.
 Pick any vector dataset you have on your own machine, or download a sample dataset from `http://<base-url>/data`.
-As an example, we use `nlsfi/YK_1M/RautatieViiva.shp` and other shapefiles from the same directory.
+As an example, we use `geoserver/nlsfi/YK_1M/RautatieViiva.shp` and other shapefiles from the same directory.
 
 :::{.note-box}
 **Note:** if downloading shapefiles from `http://<base-url>/data`, make sure to download all files with the same base name.
@@ -110,7 +110,7 @@ The easiest way to do this is to simply double-click a layer in the Browser pane
 Another way to load data to PostGIS is by using ogr2ogr, a powerful command-line tool.
 If you have QGIS installed on Windows, ogr2ogr is available from the OSGeo4W shell, which you should be able to open from the start menu.
 
-If you already added the RautatieViiva layer using QGIS, you can try loading another dataset from the `nlsfi/YK_1M` directory.
+If you already added the RautatieViiva layer using QGIS, you can try loading another dataset from the `geoserver/nlsfi/YK_1M` directory.
 For example, to load `PeltoAlue.shp` to the training database using ogr2ogr, run the following command:
 
 ```
