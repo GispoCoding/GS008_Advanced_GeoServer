@@ -1,3 +1,4 @@
 # GeoServer REST API {#rest}
 
 The GeoServer REST API can be used to perform the same actions that are available in the GeoServer web UI.
+The [GeoServer documentation](https://docs.geoserver.org/stable/en/user/rest/index.html) is a great resource for learning how to start using the GS REST API.
