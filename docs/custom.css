@@ -302,6 +302,7 @@ h5 {
 /* Media queries */
 @media (max-width: 1540px) {
     .sidebar { width: 320px; }
+    #title-container { margin-left: 320px; }
     .level1 {
         margin-left: 320px;
         width: calc(100% - 320px);
@@ -331,6 +332,8 @@ h5 {
         outline: none;
     }
 
+
+    #title-container { margin-left: 0; }
     .level1 {
         margin-left: 0;
         padding: 50px 40px;

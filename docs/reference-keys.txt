@@ -1,6 +1,6 @@
 advanced-geoserver
 about
-lorem
+license-and-permissions
 training-environment
 tools
 qgis
