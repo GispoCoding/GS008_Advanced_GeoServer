@@ -29,10 +29,11 @@ These materials are intended for users already familiar with GeoServer.
 Previous experience with QGIS and PostGIS is useful, but not necessary.
 
 In each chapter, a short description of a GeoServer-related topic is provided, followed by an exercise.
-When working through the material, try to follow along the exercises as good as you can.
+When working through the material, try to follow along the exercises as well as you can.
 Even if you cannot complete an exercise, you learn much more by at least trying.
 
 The materials contain notes and hints that help with completing the exercises.
+These are placed in special boxes.
 Hints look like this:
 
 :::{.hint-box}
@@ -45,12 +46,7 @@ While notes look like this:
 **Note:** these boxes contain various things that should to keep in mind and consider.
 :::
 
-## Lorem
+## License and permissions
 
-Lumia pirisee 7.00 , time to wake up, Tiger!! Food for thought: Mestis, annetut jäähyt 47 games; Jukurit 460 min, Sport 516 min, TUTO 892 min; TASAPUOLISTA??? Vastajännäreille ja elämän kovuuden parkujille; nauttikaa nyt, koska lauantaina palaamme voittojen tielle= Turkulaisen kiekkoilun ainoa mitali ripustetaan hienon coaching officen seinälle n klo 19.30 muistuttamaan seuraavaa coaching staffia siitä missä menee "UUDEN VOITTAVAN TUTON ALARAJA; yksi " Kukko joka veljelle" ja THE SEASON IS OVER!!Siinä viikonlopun hengessä tsemppiä kaikille taistelijoille ja heidän upeille leideilleen; kitisijät, kuusi isoa tölkkiä kolmosta, "vitosen paini" kylillä, makkaraperunat ja lähimetsään huutamaan, viimeisen tutkimuksen mukaan: "IT HELPS my FRIENDS" joten repikää siitä!! Br Jt, Lion # 79
-
-Hieno golfpäivän Hotel Mar Menorin kentällä!! Nyt sauna ja Madame Tammisen lihakeitto(simply the best) ja early to bed!!! Yksi kysymys; Henkka Salevalle; Pauli Aalto-Setälälle ja lastensuojelun viranomaisille?? Studiossa huippufiilis-kiitos Teemu ja Keku!! Päivä omistettu esikoisen muutolle!! Feeling great- kondis nousee- golfkausi korkataan Alicantessa ensi sunnuntaina!!Tasoitus noussut jo 9.0:aan TIME TO REACT!!Parhaimmillaan 4 (late seventies) Wau time flies ja äijä vanhenee- NO GOOD !!!!Nyt-vihdoinkin koulutusbusinesten kimppuun, aikataulut, buukkaukset, kirjat; täytynee palkata sihteeri??
-
-Siinä hengessä nyt kohti Marli Areenaa; siellä odottaa kauden 2012-13 järjestyksessä 193:s harjoitus (jää) Sieltä kohti välierää; part 1; keskiviikkona 18.30; be there!! Nickersonin mailalyönnit pohkeeseen jälkitilanteissa hyväksytään systemaattisesti-kysyn MIKSI??? "Det blir spännande" sanoisi ruotsin "Aurinkokuningas", ystäväni Niklas Wikegård!! Nickersonin mailalyönnit pohkeeseen jälkitilanteissa hyväksytään systemaattisesti-kysyn MIKSI??? Nyt tiedän mitä Ruissalon harjoituksissa treenataan PRO Ari Mäen johdolla!!
-
-"Can You make it one more time my friend"?, kysyy selftalk ja vastaus saadaan seuraavan synttärin yhteydessä 26.05.2013!! Taas kerran tuli selväksi: "Peli ei ole oikeudenmukaista- se on PELI!!Espanjan veljet veivät peliä kuin sitä kuuluisaa "mätää kukkoa" mutta puolustusmuuri, sitkeys, yksi vastaisku ja taululla TASURI!! Urheilun puolella Kaunottaret (Inka/ Yle; Inka & Mervi/ MTV3) joy to watch and hear!!! Leijonat tuntuivat saaneen voiton Norjasta, siitä ei kannata vielä liiton klubitakkia repäistä, jo Ranskan kanssa voitimme Norjan pystyyn joka maaottelussa; en usko, että ovat niistä ajoista ratkaisevasti kehittyneet; jos Volden on ykkösmolari, ennustan Norjalle mielenkiintoista MM-aikaa; pysykää kanavalla, olemme "veli" Antsan, Niikon ja Pekka Lehtisen kanssa kovassa iskussa kun MM-2013 startaa toukokuun alussa!!Loistavaa päivää KAIKILLE taistelijoille ja heidän upeille leideilleen; kitisijät-painukaa-tiedätte jo minne???!! ja pysykää siellä ja lopettakaa ELÄMÄN kovuuden parkuminen!! Br.JT, Lion # 79
+These materials are developed for the Advanced GeoServer course by Gispo Ltd.
+The materials are licensed under [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/) license.
