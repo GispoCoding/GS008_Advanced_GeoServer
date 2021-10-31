@@ -3,9 +3,6 @@ about
 license-and-permissions
 training-environment
 tools
-qgis
-gdal
-ogr
 security-and-user-management
 exercise---layer-security
 check-default-permissions
@@ -13,7 +10,7 @@ prevent-unauthenticated-access
 verify-rules
 extra-service-level-settings
 rasters
-gdal-1
+gdal
 setup
 gdalinfo
 exercise-optimising-raster-data-for-geoserver

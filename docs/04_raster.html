@@ -68,12 +68,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </ul></li>
 <li><a href="02_env.html#training-environment"><span class="toc-section-number">2</span> Training environment</a>
 <ul>
-<li><a href="02_env.html#tools"><span class="toc-section-number">2.1</span> Useful tools to install</a>
-<ul>
-<li><a href="02_env.html#qgis"><span class="toc-section-number">2.1.1</span> QGIS</a></li>
-<li><a href="02_env.html#gdal"><span class="toc-section-number">2.1.2</span> GDAL</a></li>
-<li><a href="02_env.html#ogr"><span class="toc-section-number">2.1.3</span> OGR</a></li>
-</ul></li>
+<li><a href="02_env.html#tools"><span class="toc-section-number">2.1</span> Useful tools to install</a></li>
 </ul></li>
 <li><a href="03_security.html#security-and-user-management"><span class="toc-section-number">3</span> Security and user management</a>
 <ul>
@@ -87,7 +82,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </ul></li>
 <li><a href="04_raster.html#rasters"><span class="toc-section-number">4</span> Optimising rasters</a>
 <ul>
-<li><a href="04_raster.html#gdal-1"><span class="toc-section-number">4.1</span> GDAL</a>
+<li><a href="04_raster.html#gdal"><span class="toc-section-number">4.1</span> GDAL</a>
 <ul>
 <li><a href="04_raster.html#setup"><span class="toc-section-number">4.1.1</span> Setup</a></li>
 <li><a href="04_raster.html#gdalinfo"><span class="toc-section-number">4.1.2</span> gdalinfo</a></li>
@@ -132,14 +127,13 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 Typical use cases for raster data are aerial and satellite imagery and various coverages.
 Raster datasets are often large, and poorly optimised raster data can result in significant decrease in GeoServer’s performance.
 Checking if raster data is correctly optimised is therefore one of the first steps that should be performed when encountering performance issues with raster layers.</p>
-<p>TODO: move this elsewhere
-Chapters <a href="04_raster.html#rasters">4</a> and <a href="05_vector.html#vectors">5</a> discussed optimising raster and vector datasets for use with GeoServer to achieve better performance.
+<p>Chapters <a href="04_raster.html#rasters">4</a> and <a href="05_vector.html#vectors">5</a> discuss optimising raster and vector datasets to achieve better performance with GeoServer.
 However, it’s important to realise certain performance limitations exist.
 For example, it’s nearly impossible to optimise WMS query response times beyond a certain point.
 To process each GetMap query, GeoServer must fetch the data from the source, render the data using a (sometimes complex) style definition, and transfer the output image over HTTP.
 Each step of this process introduces its own delays and can form a performance bottleneck.
 If WMS performance is still insufficient even after optimising the input data, instead of WMS, consider using WMTS or other services that pre-render map tiles to a cache.</p>
-<div id="gdal-1" class="section level2" number="4.1">
+<div id="gdal" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> GDAL</h2>
 <p>This exercise is based on using <a href="https://gdal.org/">GDAL</a>.
 The GDAL library provides a set of command-line tools for reading and manipulating raster data.

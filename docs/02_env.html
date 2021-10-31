@@ -68,12 +68,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </ul></li>
 <li><a href="02_env.html#training-environment"><span class="toc-section-number">2</span> Training environment</a>
 <ul>
-<li><a href="02_env.html#tools"><span class="toc-section-number">2.1</span> Useful tools to install</a>
-<ul>
-<li><a href="02_env.html#qgis"><span class="toc-section-number">2.1.1</span> QGIS</a></li>
-<li><a href="02_env.html#gdal"><span class="toc-section-number">2.1.2</span> GDAL</a></li>
-<li><a href="02_env.html#ogr"><span class="toc-section-number">2.1.3</span> OGR</a></li>
-</ul></li>
+<li><a href="02_env.html#tools"><span class="toc-section-number">2.1</span> Useful tools to install</a></li>
 </ul></li>
 <li><a href="03_security.html#security-and-user-management"><span class="toc-section-number">3</span> Security and user management</a>
 <ul>
@@ -87,7 +82,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </ul></li>
 <li><a href="04_raster.html#rasters"><span class="toc-section-number">4</span> Optimising rasters</a>
 <ul>
-<li><a href="04_raster.html#gdal-1"><span class="toc-section-number">4.1</span> GDAL</a>
+<li><a href="04_raster.html#gdal"><span class="toc-section-number">4.1</span> GDAL</a>
 <ul>
 <li><a href="04_raster.html#setup"><span class="toc-section-number">4.1.1</span> Setup</a></li>
 <li><a href="04_raster.html#gdalinfo"><span class="toc-section-number">4.1.2</span> gdalinfo</a></li>
@@ -152,23 +147,16 @@ Restart Tomcat, after which GeoServer should be accessible.</p>
 <p>Parts of this course will cover optimising raster and vector spatial data.
 For these parts, it is useful to have some tools locally available.
 It’s also highly useful to have a desktop GIS installed to act as a client application to test the various services provided by GeoServer.</p>
-<div id="qgis" class="section level3" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> QGIS</h3>
 <p>QGIS is a free open-source desktop GIS that can be easily installed on Linux, Windows, and Mac.
 You can use QGIS as a WMS/WFS client to see how the different services provided by GS work.
 Download and install the latest version of QGIS at <a href="https://qgis.org">qgis.org</a>.</p>
 <p>Alternatively, you can also use other GIS software with WMS/WFS support.
 If you don’t have access to GIS software, you can still rely on the Layer Preview functionality of GeoServer to view data.</p>
-</div>
-<div id="gdal" class="section level3" number="2.1.2">
-<h3><span class="header-section-number">2.1.2</span> GDAL</h3>
-<p>TODO: link to install instructions</p>
-</div>
-<div id="ogr" class="section level3" number="2.1.3">
-<h3><span class="header-section-number">2.1.3</span> OGR</h3>
-<p>TODO: link to install instructions</p>
+<p>GDAL and OGR are libraries that provide useful tools for processing raster and vector spatial data, respectively.
+The easiest way to install GDAL/OGR on Windows is to simply install QGIS.
+A standard QGIS installation should also install the OSGeo4W Shell.
+Opening the OSGeo4W shell from the Start menu brings up a new terminal window where GDAL and OGR commands are available to be used.</p>
 
-</div>
 </div>
 </div>
 <p style="text-align: center;">
