@@ -5,8 +5,7 @@ Typical use cases for raster data are aerial and satellite imagery and various c
 Raster datasets are often large, and poorly optimised raster data can result in significant decrease in GeoServer's performance.
 Checking if raster data is correctly optimised is therefore one of the first steps that should be performed when encountering performance issues with raster layers.
 
-TODO: move this elsewhere
-Chapters \@ref(rasters) and \@ref(vectors) discussed optimising raster and vector datasets for use with GeoServer to achieve better performance.
+Chapters \@ref(rasters) and \@ref(vectors) discuss optimising raster and vector datasets to achieve better performance with GeoServer.
 However, it's important to realise certain performance limitations exist.
 For example, it's nearly impossible to optimise WMS query response times beyond a certain point.
 To process each GetMap query, GeoServer must fetch the data from the source, render the data using a (sometimes complex) style definition, and transfer the output image over HTTP.
