@@ -56,7 +56,7 @@ This means that when multiple GS instances share a data directory, changes made 
 To avoid having to constantly restart the server on file changes, GeoServer has a catalog reload function that triggers a complete update of the catalog by reading files from the data directory.
 
 Catalog reloads can be triggered using the GS REST API, discussed later in Chapter \@ref(rest).
-Passive clustering can be implemented by running a small program/script  that watches for changes in the data directory and triggers a catalog reload for all GS instances in the cluster via the REST API.
+Passive clustering can be implemented by running a small program/script that watches for changes in the data directory and triggers a catalog reload for all GS instances in the cluster via the REST API.
 To avoid concurrency issues where multiple GeoServer instances edit the data directory at the same time, one GS instance is typically picked as the main instance that is used to make **all** configuration changes.
 The web UI of the other instances can be completely disabled/blocked to enforce this policy.
 

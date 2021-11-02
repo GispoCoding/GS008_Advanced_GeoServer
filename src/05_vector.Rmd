@@ -117,7 +117,13 @@ For example, to load `PeltoAlue.shp` to the training database using ogr2ogr, run
 ogr2ogr -f "PostgreSQL" "PG:host=<base-url> user=postgres dbname=training password=gispotraining" PeltoAlue.shp
 ```
 
-Obviously replacing <base-url> with the address of your training machine.
+Replace <base-url> with the address of your training machine, without the `http://` prefix or the final `/`.
+
+:::{.note-box}
+**Note:** in some cases, you may get an error relating to invalid geometry types when running ogr2ogr.
+If this happens, you may have to explicitly set the geometry type using the `-nlt` flag.
+See the [ogr2ogr documentation](https://gdal.org/programs/ogr2ogr.html#cmdoption-ogr2ogr-nlt) for more details.
+:::
 
 ### Indexing
 
