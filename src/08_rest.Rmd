@@ -52,8 +52,8 @@ You can use `base_url` as a *variable* in your HTTP requests by typing `{{ base_
 For example, to call `http://<base-url>/geoserver/rest/layers` simply type `{{ base_url }}/layers`.
 
 :::{.hint-box}
-**Hint:** GeoServer supports Basic authentication.
-In Insomnia, authentication details can be provided on the Auth tab.
+**Hint:** GeoServer accepts Basic authentication, read [Authentication to OWS and REST services](https://docs.geoserver.org/latest/en/user/security/auth/owsrest.html) for more details.
+In Insomnia, Basic authentication details can be provided on the Auth tab.
 :::
 
 One of the most common use cases for the REST API, especially when running a passive cluster, is triggering a catalog reload when the contents of the GS data directory change.
