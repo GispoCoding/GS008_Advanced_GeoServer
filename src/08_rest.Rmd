@@ -66,3 +66,21 @@ What response do you get, and what does it mean?
 Try until you get a successful result (HTTP return code 200).
 
 ![Successful reload request](img/insomnia-reload.png)
+
+You can also make GET requests in your web browser.
+Open a new Incognito window in your browser and try opening `http://<base-url>/geoserver/rest/layers`.
+You are likely prompted for credentials, **click cancel**.
+What result do you see, and why?
+
+Next, in the same incognito window, open the GS web interface at `http://<base-url>/geoserver/web/` and log in using your credentials.
+Then try opening `http://<base-url>/geoserver/rest/layers` again.
+
+:::{.hint-box}
+**Hint:** you can use the developer tools panel to inspect HTTP requests made by your browser.
+In Chrome, open the developer tools panel by hitting F12.
+Click on the Network tab and reload the page with F5.
+
+You can then see and examine the requests made by the browser.
+
+![Network tab in the developer tools panel](img/browser-request.png)
+:::
