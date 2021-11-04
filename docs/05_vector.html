@@ -16,7 +16,7 @@
 
 <meta name="author" content="Mikael Vaaltola" />
 
-<meta name="date" content="2021-10-31" />
+<meta name="date" content="2021-11-04" />
 
 
 <meta name="description" content="5 Optimising vector data | Advanced GeoServer">
@@ -41,6 +41,8 @@
 <div class="main-content">
 <!-- special comment to mark beginning of title section for bookdown -->
 <!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
 
 <div class="row">
 <div class="col-sm-12">
@@ -111,7 +113,12 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <li><a href="07_clustering.html#data-and-configuration-concerns"><span class="toc-section-number">7.4</span> Data and configuration concerns</a></li>
 <li><a href="07_clustering.html#exercise---clustering"><span class="toc-section-number">7.5</span> Exercise - clustering</a></li>
 </ul></li>
-<li><a href="08_rest.html#rest"><span class="toc-section-number">8</span> GeoServer REST API</a></li>
+<li><a href="08_rest.html#rest"><span class="toc-section-number">8</span> GeoServer REST API</a>
+<ul>
+<li><a href="08_rest.html#using-apis"><span class="toc-section-number">8.1</span> Using APIs</a></li>
+<li><a href="08_rest.html#exercise-rest-api"><span class="toc-section-number">8.2</span> Exercise — REST API</a></li>
+</ul></li>
+<li><a href="09_extensions.html#extensions"><span class="toc-section-number">9</span> Extensions</a></li>
 </ul>
 </div>
 </nav>
@@ -210,7 +217,12 @@ If you have QGIS installed on Windows, ogr2ogr is available from the OSGeo4W she
 <p>If you already added the RautatieViiva layer using QGIS, you can try loading another dataset from the <code>geoserver/nlsfi/YK_1M</code> directory.
 For example, to load <code>PeltoAlue.shp</code> to the training database using ogr2ogr, run the following command:</p>
 <pre><code>ogr2ogr -f &quot;PostgreSQL&quot; &quot;PG:host=&lt;base-url&gt; user=postgres dbname=training password=gispotraining&quot; PeltoAlue.shp</code></pre>
-<p>Obviously replacing <base-url> with the address of your training machine.</p>
+<p>Replace <base-url> with the address of your training machine, without the <code>http://</code> prefix or the final <code>/</code>.</p>
+<div class="note-box">
+<p><strong>Note:</strong> in some cases, you may get an error relating to invalid geometry types when running ogr2ogr.
+If this happens, you may have to explicitly set the geometry type using the <code>-nlt</code> flag.
+See the <a href="https://gdal.org/programs/ogr2ogr.html#cmdoption-ogr2ogr-nlt">ogr2ogr documentation</a> for more details.</p>
+</div>
 </div>
 </div>
 <div id="indexing" class="section level3" number="5.1.2">
@@ -293,7 +305,7 @@ Verify results by trying to publish the layer again — Native SRS should now be
 
 <div class="footer-info">
 <h5 class="footer-title">Advanced GeoServer</h5>
-<span class="footer-version">v2021-10-31</span>
+<span class="footer-version">v2021-11-04</span>
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 
@@ -306,6 +318,7 @@ Verify results by trying to publish the layer again — Native SRS should now be
 </span>
 </div>
 
+</div>
 </div>
 </footer>
 </div>

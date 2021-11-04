@@ -31,3 +31,6 @@ active-cluster
 data-and-configuration-concerns
 exercise---clustering
 rest
+using-apis
+exercise-rest-api
+extensions

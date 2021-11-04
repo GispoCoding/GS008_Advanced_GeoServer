@@ -16,7 +16,7 @@
 
 <meta name="author" content="Mikael Vaaltola" />
 
-<meta name="date" content="2021-10-31" />
+<meta name="date" content="2021-11-04" />
 
 
 <meta name="description" content="7 Clustering | Advanced GeoServer">
@@ -41,6 +41,8 @@
 <div class="main-content">
 <!-- special comment to mark beginning of title section for bookdown -->
 <!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
 
 <div class="row">
 <div class="col-sm-12">
@@ -111,7 +113,12 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <li><a href="07_clustering.html#data-and-configuration-concerns"><span class="toc-section-number">7.4</span> Data and configuration concerns</a></li>
 <li><a href="07_clustering.html#exercise---clustering"><span class="toc-section-number">7.5</span> Exercise - clustering</a></li>
 </ul></li>
-<li><a href="08_rest.html#rest"><span class="toc-section-number">8</span> GeoServer REST API</a></li>
+<li><a href="08_rest.html#rest"><span class="toc-section-number">8</span> GeoServer REST API</a>
+<ul>
+<li><a href="08_rest.html#using-apis"><span class="toc-section-number">8.1</span> Using APIs</a></li>
+<li><a href="08_rest.html#exercise-rest-api"><span class="toc-section-number">8.2</span> Exercise — REST API</a></li>
+</ul></li>
+<li><a href="09_extensions.html#extensions"><span class="toc-section-number">9</span> Extensions</a></li>
 </ul>
 </div>
 </nav>
@@ -128,6 +135,11 @@ While a cluster can run on a single machine by running multiple GeoServers on di
 Performance can be increased by running multiple GeoServer instances in parallel, thus decreasing the computational stress on a single server machine.
 On the other hand, availability can be improved by maintaining one or many fallback instances that take over when the active GS instance fails.
 In demanding situations even a hybrid approach can be considered, with multiple instances running in parallel but with a set of fallback instances ready to replace them on failure.</p>
+<div class="note-box">
+<p><strong>Note:</strong> while clustering is an effective way to increase the performance of GeoServer, it’s still important to remember to optimise the data first.
+Even the biggest and most powerful GS cluster will struggle with poorly optimised rasters or vector data stored in the wrong format.
+<em>Always</em> make sure to optimise data first before considering other ways to improve performance.</p>
+</div>
 <p>Theoretically, there are two methods to implement a GeoServer cluster.
 These are referred to as active and passive clustering.
 Both methods are explained in further detail below in Chapters <a href="07_clustering.html#passive-cluster">7.2</a> and <a href="07_clustering.html#active-cluster">7.3</a>.</p>
@@ -219,13 +231,16 @@ It’s not necessary to go edit the XML files directly, although you can do so i
 <h2><span class="header-section-number">7.5</span> Exercise - clustering</h2>
 <p>The goal of this exercise is to start planning how to implement a GeoServer cluster that fits your or your organisation’s needs.
 While a cluster could be implemented on a single computer by running multiple GS instances on the same machine, we unfortunately don’t have sufficient access to the training environment.
-Actually implementing the cluster would also require more time than we have available for a single exercise.</p>
-<p>Instead of implementing a cluster, think about your or your organisation’s needs for GeoServer, and whether you need to implement clustering now or in the future.
-Why, or why not?
-If you don’t need clustering now, try to think of potential scenarios where you would need to scale out your GS implementation with clustering.
-Which clustering approach/implementation would suit your needs better, active or passive?
-How would you share data between instances?
-Would you need to parametrise the configuration file?</p>
+Actually implementing the cluster would also require more time than we have available for a single exercise.
+Instead of implementing a cluster, think about your or your organisation’s needs for GeoServer.</p>
+<p>Try to answer the following questions:</p>
+<ul>
+<li>Do you need to implement clustering now or in the future? Why, or why not?</li>
+<li>If you don’t need clustering now, are there potential scenarios where you would need to scale out your GS implementation with clustering?</li>
+<li>Which clustering approach/implementation would suit your needs better, active or passive?</li>
+<li>How would you share data between instances?</li>
+<li>Would you need to parametrise the configuration file?</li>
+</ul>
 
 </div>
 </div>
@@ -242,7 +257,7 @@ Would you need to parametrise the configuration file?</p>
 
 <div class="footer-info">
 <h5 class="footer-title">Advanced GeoServer</h5>
-<span class="footer-version">v2021-10-31</span>
+<span class="footer-version">v2021-11-04</span>
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 
@@ -255,6 +270,7 @@ Would you need to parametrise the configuration file?</p>
 </span>
 </div>
 
+</div>
 </div>
 </footer>
 </div>

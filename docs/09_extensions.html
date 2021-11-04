@@ -7,7 +7,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="6 Map styles | Advanced GeoServer" />
+<meta property="og:title" content="9 Extensions | Advanced GeoServer" />
 <meta property="og:type" content="book" />
 
 
@@ -19,9 +19,9 @@
 <meta name="date" content="2021-11-04" />
 
 
-<meta name="description" content="6 Map styles | Advanced GeoServer">
+<meta name="description" content="9 Extensions | Advanced GeoServer">
 
-<title>6 Map styles | Advanced GeoServer</title>
+<title>9 Extensions | Advanced GeoServer</title>
 
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
@@ -128,49 +128,17 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="styles" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Map styles</h1>
-<p>Styles define how GeoServer renders spatial data to maps.
-The GeoServer render engine uses SLD, but other styling languages such as (Geo)CSS are supported via extensions.
-All styling language extensions work functionally the same — they convert style definitions written in another syntax to SLD that the render engine can use.
-GeoServer also supports its own SLD extensions and vendor-options, described in the <a href="https://docs.geoserver.org/master/en/user/styling/sld/extensions/index.html">GeoServer documentation</a>.
-These extensions provide users many new and powerful options, such as performing on-the-fly <a href="">geometry translations</a>, and creating dynamic styles by allowing [SLD variable substitution].</p>
-<p>A more novel approach to styling is distributing map styles to clients.
-This is especially useful when distributing vector data — either through WFS or WMTS (vector tiles).
-Distributing map styles along with spatial vector data lets client software render the data in a meaningful way.
-This lowers the barrier for consuming vector data, as clients don’t have to “know” anything about the data or its properties to render it.</p>
-<div id="choosing-a-style-format" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Choosing a style format</h2>
-<p>One of the main issues with distributing map styles is the lack of globally used standards.
-Many formats have been developed for storing style information, and it seems nearly every software uses its own implementation.
-While the SLD standard is commonly supported, it’s very flexible and allows vendor-options and other extensions that cause incompatibilities between software.
-In practice, this often means styles that are created in QGIS and exported to SLD may not work in GeoServer, despite using a common style definition language.</p>
-<div class="note-box">
-<p><strong>Note:</strong> while the SLD produced by QGIS is not guaranteed to be consumable by GeoServer, progress in ensuring compatibility has been made over the recent years.
-Most issues arise from the use of special QGIS rendering options, such as shapeburst symbologies, and more complex styles such as expression based symbology.
-See the <a href="https://docs.geoserver.org/master/en/user/styling/qgis/index.html">GeoServer documentation</a> for more information on converting QGIS SLD to GeoServer.</p>
-</div>
-<p>Selecting a suitable style format for distribution therefore requires some knowledge of the (intended) client software.
-If you are planning to use GeoServer as a backend for your mobile application written in MapBox GL, it makes sense to utilise the <a href="https://docs.geoserver.org/master/en/user/styling/mbstyle/index.html">MBStyles extension</a>.</p>
-<p>On the other hand, if you want to stick to SLD and ensure maximum compatibility between software, consider installing the <a href="https://docs.geoserver.org/master/en/user/community/geostyler/index.html">GeoStyler Extension</a>.
-The extension adds a new graphical style editor tab to the GeoServer style editor, allowing users to generate GeoServer-compatible SLD with relative ease.</p>
-</div>
-<div id="exercise-creating-styles" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Exercise — creating styles</h2>
-<p>Try creating styles for your own vector data in GeoStyler on the <a href="https://geostyler.github.io/geostyler-demo/">GeoStyler demo page</a>.</p>
-<div class="figure">
-<img src="img/geostyler-demo.png" alt="" />
-<p class="caption">GeoStyler graphical style editor</p>
-</div>
-<p>Next, pick a new <a href="https://docs.geoserver.org/master/en/user/styling/sld/extensions/index.html">GeoServer SLD extension</a> you haven’t used before and try creating a new style with it.
-Use the GeoServer <a href="https://docs.geoserver.org/latest/en/user/styling/sld/cookbook/index.html">SLD</a>, <a href="https://docs.geoserver.org/latest/en/user/styling/css/cookbook/index.html">CSS</a>, and <a href="https://docs.geoserver.org/master/en/user/styling/ysld/cookbook/index.html">YSLD</a> cookbooks as reference.
-Think about the benefits and use cases for your chosen styling extension, but also try to assess potential issues such as impact on rendering performance and compatibility with other software.</p>
+<div id="extensions" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Extensions</h1>
+<p>The functionalities of GeoServer can be expanded using various extensions.
+These extensions are divided to two categories: extensions, which are officially supported plug-ins, and community modules, which are more experimental in nature.</p>
+<p>Many features that are available in a current base installation of GeoServer by default were once implemented as part of an extension and later integrated to the GS core.</p>
+<p>The source code of available extensions can be viewed at the <a href="https://github.com/geoserver/geoserver/">official GeoServer GitHub repository</a>.
+Both <a href="https://github.com/geoserver/geoserver/tree/main/src/extension">extensions</a> and <a href="https://github.com/geoserver/geoserver/tree/main/src/community">community modules</a> are located under the src directory.</p>
 
 </div>
-</div>
 <p style="text-align: center;">
-<a href="05_vector.html"><button class="btn btn-default">Previous</button></a>
-<a href="07_clustering.html"><button class="btn btn-default">Next</button></a>
+<a href="08_rest.html"><button class="btn btn-default">Previous</button></a>
 </p>
 </div>
 </div>
