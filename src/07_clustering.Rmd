@@ -6,6 +6,12 @@ Performance can be increased by running multiple GeoServer instances in parallel
 On the other hand, availability can be improved by maintaining one or many fallback instances that take over when the active GS instance fails.
 In demanding situations even a hybrid approach can be considered, with multiple instances running in parallel but with a set of fallback instances ready to replace them on failure.
 
+:::{.note-box}
+**Note:** while clustering is an effective way to increase the performance of GeoServer, it's still important to remember to optimise the data first.
+Even the biggest and most powerful GS cluster will struggle with poorly optimised rasters or vector data stored in the wrong format.
+*Always* make sure to optimise data first before considering other ways to improve performance.
+:::
+
 Theoretically, there are two methods to implement a GeoServer cluster.
 These are referred to as active and passive clustering.
 Both methods are explained in further detail below in Chapters \@ref(passive-cluster) and \@ref(active-cluster).
@@ -56,7 +62,7 @@ This means that when multiple GS instances share a data directory, changes made 
 To avoid having to constantly restart the server on file changes, GeoServer has a catalog reload function that triggers a complete update of the catalog by reading files from the data directory.
 
 Catalog reloads can be triggered using the GS REST API, discussed later in Chapter \@ref(rest).
-Passive clustering can be implemented by running a small program/script  that watches for changes in the data directory and triggers a catalog reload for all GS instances in the cluster via the REST API.
+Passive clustering can be implemented by running a small program/script that watches for changes in the data directory and triggers a catalog reload for all GS instances in the cluster via the REST API.
 To avoid concurrency issues where multiple GeoServer instances edit the data directory at the same time, one GS instance is typically picked as the main instance that is used to make **all** configuration changes.
 The web UI of the other instances can be completely disabled/blocked to enforce this policy.
 
@@ -111,10 +117,12 @@ It's not necessary to go edit the XML files directly, although you can do so if 
 The goal of this exercise is to start planning how to implement a GeoServer cluster that fits your or your organisation's needs.
 While a cluster could be implemented on a single computer by running multiple GS instances on the same machine, we unfortunately don't have sufficient access to the training environment.
 Actually implementing the cluster would also require more time than we have available for a single exercise.
+Instead of implementing a cluster, think about your or your organisation's needs for GeoServer.
 
-Instead of implementing a cluster, think about your or your organisation's needs for GeoServer, and whether you need to implement clustering now or in the future.
-Why, or why not?
-If you don't need clustering now, try to think of potential scenarios where you would need to scale out your GS implementation with clustering.
-Which clustering approach/implementation would suit your needs better, active or passive?
-How would you share data between instances?
-Would you need to parametrise the configuration file?
+Try to answer the following questions:
+
+- Do you need to implement clustering now or in the future? Why, or why not?
+- If you don't need clustering now, are there potential scenarios where you would need to scale out your GS implementation with clustering?
+- Which clustering approach/implementation would suit your needs better, active or passive?
+- How would you share data between instances?
+- Would you need to parametrise the configuration file?

@@ -13,7 +13,7 @@ jobs:
       - name: Render Rmd to HTML
         run: ./render.sh
       - name: Move output to docs
-        run: ./deploy.sh
+        run: rm -rf docs/* && cp -r out/* docs/
       - name: Assert index.html exists
         run: test -f docs/index.html
 

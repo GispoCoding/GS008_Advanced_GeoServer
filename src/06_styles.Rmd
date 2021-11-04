@@ -20,7 +20,7 @@ In practice, this often means styles that are created in QGIS and exported to SL
 
 :::{.note-box}
 **Note:** while the SLD produced by QGIS is not guaranteed to be consumable by GeoServer, progress in ensuring compatibility has been made over the recent years.
-Most issues arise from the use of special QGIS rendering options, such as shapeburst symbologies, and more complex styles suc as expression based symbology.
+Most issues arise from the use of special QGIS rendering options, such as shapeburst symbologies, and more complex styles such as expression based symbology.
 See the [GeoServer documentation](https://docs.geoserver.org/master/en/user/styling/qgis/index.html) for more information on converting QGIS SLD to GeoServer.
 :::
 
@@ -32,9 +32,10 @@ The extension adds a new graphical style editor tab to the GeoServer style edito
 
 ## Exercise — creating styles
 
-Try playing around with creating styles for your data in GeoStyler on the [GeoStyler demo page](https://geostyler.github.io/geostyler-demo/).
+Try creating styles for your own vector data in GeoStyler on the [GeoStyler demo page](https://geostyler.github.io/geostyler-demo/).
 
 ![GeoStyler graphical style editor](img/geostyler-demo.png)
 
-Next, pick a new [GeoServer SLD extension](https://docs.geoserver.org/master/en/user/styling/sld/extensions/index.html) you haven't used before and see it in action.
-Think about the potential use cases for the extension, but also try to assess potential issues with rendering performance and compatibility with other software.
+Next, pick a new [GeoServer SLD extension](https://docs.geoserver.org/master/en/user/styling/sld/extensions/index.html) you haven't used before and try creating a new style with it.
+Use the GeoServer [SLD](https://docs.geoserver.org/latest/en/user/styling/sld/cookbook/index.html), [CSS](https://docs.geoserver.org/latest/en/user/styling/css/cookbook/index.html), and [YSLD](https://docs.geoserver.org/master/en/user/styling/ysld/cookbook/index.html) cookbooks as reference.
+Think about the benefits and use cases for your chosen styling extension, but also try to assess potential issues such as impact on rendering performance and compatibility with other software.
