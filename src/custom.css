@@ -3,16 +3,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap");
 
 /* Generics */
-body { 
-    overflow-x: hidden; 
-}
+body { overflow-x: hidden; }
 
-p, span { 
+p, span, li {
     color: #434662;
     font-family: 'Karla', sans-serif;
     font-size: 1em !important;
     text-align: left;
-    margin-bottom: 1rem !important;
     line-height: 1.6em !important;
 }
 
@@ -28,7 +25,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter' !important;
+    font-family: 'Inter', sans-serif !important;
     font-weight: bold !important;
     color: #434662;
     line-height: 140%;
@@ -36,25 +33,15 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 1em !important;
 }
 
-h1 {
-    font-size: 240% !important;
-}
+h1 { font-size: 240% !important; }
 
-h2 {
-    font-size: 200% !important;
-}
+h2 { font-size: 200% !important; }
 
-h3 {
-    font-size: 160% !important;
-}
+h3 { font-size: 160% !important; }
 
-h4 {
-    font-size: 120% !important;
-}
+h4 { font-size: 120% !important; }
 
-h5 {
-    font-size: 100% !important;
-}
+h5 { font-size: 100% !important; }
 
 /* Sidebar and toc */
 
@@ -76,6 +63,7 @@ h5 {
     height: 100%;
     overflow: scroll;
 }
+
 .sidebar-wrapper::-webkit-scrollbar {
     width: 0 !important;
     background: transparent !important;
@@ -84,12 +72,15 @@ h5 {
 .sidebar-title-wrapper {
     margin: 10% 5% 20% 5%;
 }
+
 .sidebar-title {
     text-align: left !important;
 }
+
 .sidebar-title h1 {
     color: #fbfbfb !important;
 }
+
 .sidebar-title:after {
     content: "";
     background: #fbfbfb;
@@ -114,18 +105,20 @@ h5 {
     margin: 0;
 }
 
-.sidebar .navbar-toggle { 
-    display: none; 
+.sidebar .navbar-toggle {
+    display: none;
 }
 
-#TOC ul { 
+#TOC ul {
     position: relative;
     padding-inline-start: 6%;
 }
-#TOC li { 
-    list-style: none; 
-    padding-bottom: 0.6em; 
+
+#TOC li {
+    list-style: none;
+    padding-bottom: 0.6em;
 }
+
 #TOC > ul > li > a {
     height: auto;
     font-family: 'Inter', sans-serif;
@@ -134,6 +127,7 @@ h5 {
     padding-bottom: 0.6em;
     text-decoration: none !important;
 }
+
 #TOC li > a {
     color: #fbfbfb !important;
     width: 100%;
@@ -145,9 +139,8 @@ h5 {
     font-family: 'Inter', sans-serif;
     text-decoration: none !important;
 }
-#TOC li > a:hover {
-    text-decoration: underline !important;
-}
+
+#TOC li > a:hover { text-decoration: underline !important; }
 
 .toc-section-number {
     color: inherit;
@@ -169,9 +162,7 @@ h5 {
     align-items: stretch;
 }
 
-.main-content-wrapper {
-    padding-bottom: 15%;
-}
+.main-content-wrapper { padding-bottom: 15%; }
 
 .level1 { /* wraps around main content */
     flex: 1 0 auto;
@@ -186,9 +177,9 @@ h5 {
     padding: 1em 0;
 }
 
-.level1 .figure {
-    padding: 1em 0;
-}
+.level1 .figure { padding: 1em 0; }
+
+.level1 p, .level1 span { margin-bottom: 1rem !important; }
 
 /* Title */
 
@@ -197,6 +188,7 @@ h5 {
     margin-left: 20%;
     padding: 2em 3em;
 }
+
 #title-container:after {
     content: "";
     background: #434662;
@@ -218,6 +210,7 @@ h5 {
     padding: 0.4em 0.8em !important;
     border-radius: 0 !important;
 }
+
 .btn:hover {
     color: #fbfbfb !important;
     text-decoration: none;
@@ -239,6 +232,7 @@ h5 {
     flex-direction: column;
     align-items: flex-end;
 }
+
 .footer:before {
     content: "";
     background-image: url(img/Gispo_tausta.png);
@@ -267,16 +261,12 @@ h5 {
     text-align: right;
 }
 
-.footer-version {
-    position: relative;
-}
+.footer-version { position: relative; }
 
-.license {
-    padding-top: 10%;
-}
+.license { padding-top: 10%; }
 
-.footer-contact { 
-    margin: 0 20px; 
+.footer-contact {
+    margin: 0 20px;
 }
 .footer-contact-info {
     display: block;
@@ -286,12 +276,14 @@ h5 {
 .footer-copyright-year { font-size: 0.5rem; }
 
 /* Content boxes */
+
 .hint-box {
     background: #7a3884;
     padding: 10px;
     border: none;
     margin-bottom: 1rem;
 }
+
 .hint-box p {
     color: #fbfbfb;
     margin: 0 !important;
@@ -303,6 +295,7 @@ h5 {
     border: none;
     margin-bottom: 1rem;
 }
+
 .note-box p {
     color: #444444;
     margin: 0 !important;
@@ -311,6 +304,7 @@ h5 {
 /* Media queries */
 @media (max-width: 1540px) {
     .sidebar { width: 320px; }
+    .main-content-wrapper { padding-bottom: 200px; }
     #title-container { margin-left: 320px; }
     .level1 {
         margin-left: 320px;
