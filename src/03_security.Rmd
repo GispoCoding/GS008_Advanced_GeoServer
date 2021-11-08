@@ -10,7 +10,7 @@ Read access can then be explicitly granted to specific workspaces or layers.
 
 This exercise focuses on securing data access in GS.
 
-### Check default permissions
+### Check default permissions {#permissions}
 
 Open a new incognito browser window (Ctrl+Shift+N in Chrome).
 This is an easy way to test the behaviour of GS as an unauthenticated user.
