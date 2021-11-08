@@ -16,7 +16,7 @@
 
 <meta name="author" content="Mikael Vaaltola" />
 
-<meta name="date" content="2021-11-04" />
+<meta name="date" content="2021-11-08" />
 
 
 <meta name="description" content="7 Clustering | Advanced GeoServer">
@@ -76,7 +76,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <ul>
 <li><a href="03_security.html#exercise---layer-security"><span class="toc-section-number">3.1</span> Exercise - layer security</a>
 <ul>
-<li><a href="03_security.html#check-default-permissions"><span class="toc-section-number">3.1.1</span> Check default permissions</a></li>
+<li><a href="03_security.html#permissions"><span class="toc-section-number">3.1.1</span> Check default permissions</a></li>
 <li><a href="03_security.html#prevent-unauthenticated-access"><span class="toc-section-number">3.1.2</span> Prevent unauthenticated access</a></li>
 <li><a href="03_security.html#verify-rules"><span class="toc-section-number">3.1.3</span> Verify rules</a></li>
 </ul></li>
@@ -118,7 +118,11 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <li><a href="08_rest.html#using-apis"><span class="toc-section-number">8.1</span> Using APIs</a></li>
 <li><a href="08_rest.html#exercise-rest-api"><span class="toc-section-number">8.2</span> Exercise — REST API</a></li>
 </ul></li>
-<li><a href="09_extensions.html#extensions"><span class="toc-section-number">9</span> Extensions</a></li>
+<li><a href="09_extensions.html#extensions"><span class="toc-section-number">9</span> Extensions</a>
+<ul>
+<li><a href="09_extensions.html#gs-tools"><span class="toc-section-number">9.1</span> Useful tools</a></li>
+<li><a href="09_extensions.html#jmeter"><span class="toc-section-number">9.2</span> Exercise - JMeter</a></li>
+</ul></li>
 </ul>
 </div>
 </nav>
@@ -193,6 +197,10 @@ Unlike in the passive clustering approach, each instance has its own private dat
 A Message Oriented Middleware (MOM) written in Java synchronises configuration changes between the primary instances and replicas.
 There can be one or many primary instances, which are used to edit the configuration, and replicas, which simply replicate the primary instance configuration based on messages from the MOM.
 The active approach relies on the MOM for catalog synchronisation, meaning catalog reloads should never be issued on primary instances.</p>
+<p>Compared to passive clustering, the active clustering approach is more prone to failure.
+While the active approach has its own benefits, including helping with data synchronisation when multiple configuration changes are made simultaneously, there are ways to circumvent these issues in the relatively simple passive clustering approach.
+On the other hand, the MOM adds another layer of complexity and is an additional piece of software that needs to be updated and maintained.
+While both active and passive clustering are perfectly valid approaches to the same issue, passive clustering is likely a better fit for most use cases.</p>
 </div>
 <div id="data-and-configuration-concerns" class="section level2" number="7.4">
 <h2><span class="header-section-number">7.4</span> Data and configuration concerns</h2>
@@ -257,7 +265,7 @@ Instead of implementing a cluster, think about your or your organisation’s nee
 
 <div class="footer-info">
 <h5 class="footer-title">Advanced GeoServer</h5>
-<span class="footer-version">v2021-11-04</span>
+<span class="footer-version">v2021-11-08</span>
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 

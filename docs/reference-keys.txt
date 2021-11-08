@@ -5,7 +5,7 @@ training-environment
 tools
 security-and-user-management
 exercise---layer-security
-check-default-permissions
+permissions
 prevent-unauthenticated-access
 verify-rules
 extra-service-level-settings
@@ -34,3 +34,5 @@ rest
 using-apis
 exercise-rest-api
 extensions
+gs-tools
+jmeter
